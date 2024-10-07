@@ -1,4 +1,5 @@
 import viewOverflow from '../views/overflow';
+import viewInfo from '../views/info';
 
 const Dashboard = class Dashboard {
   constructor(params) {
@@ -12,6 +13,7 @@ const Dashboard = class Dashboard {
   async render() {
     return `
       <div>${viewOverflow()}</div>
+      <div>${viewInfo()}</div>
     `;
   }
 
