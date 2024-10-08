@@ -1,3 +1,5 @@
+// import desktop from '../assets/desktop.png';
+
 export default () => (`
   <div id="overflow">
     <p id="presentation">
