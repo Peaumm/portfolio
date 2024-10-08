@@ -3,12 +3,15 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js", //if you unuse typescript entry
-  //entry: './src/index.ts',
+  entry: "./src/index.js",
+
   output: {
-    filename: "src/[name].[fullhash].js",
+    filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
+    assetModuleFilename: "assets/[hash][ext][query]",
+    clean: true,
   },
+
   module: {
     rules: [
       {
@@ -23,44 +26,51 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/i,
-        include: path.resolve(__dirname, 'src'),
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        test: /\.ts$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
       },
       {
-        test: /\.(png|jpe?g|gif|ico|svg|avif)$/i,
-        use: [
-          {
-            loader: "file-loader",
-          },
-        ],
+        test: /\.css$/i,
+        include: path.resolve(__dirname, "src"),
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
-      { test: /\.ts$/, use: "ts-loader" },
+      {
+        test: /\.(png|jpe?g|gif|svg|ico|avif)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "assets/[hash][ext][query]",
+        },
+      },
     ],
   },
+
   resolve: {
     extensions: [".ts", ".js"],
   },
+
   devServer: {
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization",
-      "Access-Control-Allow-Credentials": true
+      "Access-Control-Allow-Headers":
+        "X-Requested-With, content-type, Authorization",
+      "Access-Control-Allow-Credentials": true,
     },
     historyApiFallback: true,
-    host: '127.0.0.1',
+    host: "127.0.0.1",
     port: 5004,
     open: true,
     hot: true,
     client: {
-      logging: 'info',
+      logging: "info",
       overlay: true,
       progress: true,
-      webSocketTransport: 'ws'
+      webSocketTransport: "ws",
     },
-    webSocketServer: 'ws'
+    webSocketServer: "ws",
   },
+
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "src/index.html"),
@@ -73,4 +83,6 @@ module.exports = {
       files: "./src/",
     }),
   ],
+
+  mode: "development",
 };
