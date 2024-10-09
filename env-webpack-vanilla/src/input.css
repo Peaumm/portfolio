@@ -5,6 +5,10 @@
 body {
   background-color: aliceblue; 
 }
+
+html {
+  background-color: black;
+}
  
 #overflow {
   background-image: url('./assets/photo_langage/laptop.jpg');
