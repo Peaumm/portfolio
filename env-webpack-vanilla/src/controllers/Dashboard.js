@@ -1,5 +1,7 @@
 import viewOverflow from '../views/overflow';
 import viewInfo from '../views/info';
+import viewProjects from '../views/projects';
+import viewButtons from '../views/buttons';
 
 const Dashboard = class Dashboard {
   constructor(params) {
@@ -14,6 +16,8 @@ const Dashboard = class Dashboard {
     return `
       <div>${viewOverflow()}</div>
       <div>${viewInfo()}</div>
+      <div>${viewButtons()}</div>
+      <div>${viewProjects()}</div>
     `;
   }
 

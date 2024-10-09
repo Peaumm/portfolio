@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npx webpack-dev-server --mode development",
-    "dist": "npx webpack --mode production --progress=profile",
+    "build": "npx webpack --mode production --progress=profile",
     "lint": "eslint ."
   },
   "repository": {

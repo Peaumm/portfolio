@@ -42,6 +42,18 @@ module.exports = {
           filename: "assets/[hash][ext][query]",
         },
       },
+      {
+        test: /\.(pdf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]'
+            }
+          }
+        ]
+      }
+    
     ],
   },
 
