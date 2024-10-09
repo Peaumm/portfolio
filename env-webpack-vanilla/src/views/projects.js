@@ -2,7 +2,7 @@ import coloc from '../assets/photo_project/Colocataire.png';
 import coloc2 from '../assets/photo_project/Colocataire.gif';
 
 export default () => (`
-  <div class="mb-8 mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+  <div class="pb-8 mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
     <p class="mx-auto mt-2 mb-4 max-w-lg text-pretty text-center text-4xl font-medium tracking-tight text-gray-950 sm:text-5xl">Mes projets</p>
     <ul role="list" class="flex justify-around divide-y divide-gray-100 grid gap-x-8 gap-y-4 grid-cols-3">
       <li class="flex justify-center gap-x-6 py-5">
